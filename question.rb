@@ -10,12 +10,12 @@ class Question
     @current_player = current_player
   end
   
-  def anwser_question
+  def answer_question
     puts "#{@current_player.name}, what does #{@number_1} plus #{@number_2} equal?"
     @anwser = gets.chomp    
   end
 
-  def good_anwser?
+  def good_answer?
     if @anwser == @result.to_s
       puts "Bravo"
       return true

@@ -20,19 +20,18 @@ class Game
 
   def initialize
     @player1 = Player.new 'P1 - Marie-A'
-    @player2 = Player.new 'P2 - Etienne'
+    @player2 = Player.new 'P2 - Yujie'
     @players = [@player1, @player2]
-    #@turn = Turn.new(@players)
   end
 
-  def scorse
+  def score
     puts
-    puts "Scorse: #{@player1.name} #{@player1.live}/3   vs   #{@player2.name} #{@player2.live}/3 "
+    puts "Score: #{@player1.name} #{@player1.live}/3   vs   #{@player2.name} #{@player2.live}/3 "
     puts
   end
   
   def end_game
-    puts "#{@players[0].name} wins with a score of #{@players[0].live}"
+    puts "#{@players[0].name} wins with a score of #{@players[0].live}/3"
     puts "----- GAME OVER ----- \n Good bye!"
 
   end
@@ -41,13 +40,12 @@ class Game
     puts "------------------------------"
     puts "-------- NEW TURN ------------"
     the_question = Question.new(@players[0])  
-    #@@@ voir comment le mettre dans players  
-    the_question.anwser_question
-    if !the_question.good_anwser?
+    the_question.answer_question
+    if !the_question.good_answer?
       @players[0].set_live
     end
     @players.rotate!
-    scorse
+    score
 
     end
 
